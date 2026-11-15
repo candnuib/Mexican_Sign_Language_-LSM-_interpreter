@@ -8,7 +8,7 @@ This program automates the batch processing of a structured image dataset, conve
 ### How It Works
 1. **Directory Scanning:** The script automatically traverses the dataset folder, reading subdirectories categorized by sign classes (letters).
 2. **Image Loading & Validation:** Each image is loaded via OpenCV and converted to RGB color space. The script checks if MediaPipe successfully detects a hand; if an image fails or contains no detectable hand, it is skipped and logged to maintain data integrity.
-3. **Coordinate Extraction:** For every successfully detected hand, the script extracts the 3D coordinates ($X, Y, Z$) of the **21 anatomical keypoints** (fingertips, joints, and wrist base).
+3. **Coordinate Extraction:** For every successfully detected hand, the script extracts the 3D coordinates ($X, Y, Z $) of the **21 anatomical keypoints** (fingertips, joints, and wrist base).
 4. **Tabular CSV Export:** The extracted data is compiled and saved into individual `.csv` files for each letter (e.g., `A.csv`, `B.csv`). Each row stores the image filename, the target letter, and the 63 corresponding coordinate values ($21 \text{ landmarks} \times 3$ axes).
 
 ### Features
