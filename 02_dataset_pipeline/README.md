@@ -12,11 +12,11 @@ The `dataset_pipeline` folder houses the foundational workflow required to bridg
 
 ### Pipeline Tools
 
-1. **Image Collector (`image_colector` / `recolector.py`)**
+1. **Image Collector (`image_colector.py`)**
    * **Purpose:** Automates the acquisition of static sign images using OpenCV and the computer webcam.
    * **Key Features:** It manages class subfolders dynamically (letters 'A' through 'Z', and 'none'), names files sequentially (`foto_1.jpg`, `foto_2.jpg`, etc.), and features a live on-screen UI displaying the active class and total sample count to build a robust image repository.
 
-2. **Landmark Extraction (`landmark_extraction` / `extraer_landmarks.py`)**
+2. **Landmark Extraction (`landmark_extraction.py`)**
    * **Purpose:** Converts the captured image dataset into tabular training data.
    * **Key Features:** Processes each image in batch using MediaPipe (`hand_landmarker.task`) to detect the hand and extract the 3D coordinates of the 21 keypoints. It includes built-in validation to discard empty frames or failed detections, exporting the valid results directly into structured `.csv` files (one per class/letter).
 
