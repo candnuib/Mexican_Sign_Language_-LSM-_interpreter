@@ -1,4 +1,4 @@
-# Mexican_Sign_Language_-LSM-_interpreter
+# Mexican Sign Language (LSM) Electronic Interpreter
 Real-time intelligent system for Mexican Sign Language (LSM) recognition and translation using computer vision, Deep Learning, and landmark processing.
 
 Official repository for the research and university social service project focused on developing an assistive technological prototype. 
