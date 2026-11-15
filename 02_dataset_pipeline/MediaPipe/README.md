@@ -1,5 +1,7 @@
 # Real-Time Hand Detection & Landmark Visualization
 
+<img width="1543" height="538" alt="image" src="https://github.com/user-attachments/assets/4be986ed-ffca-4ac7-83d9-8ded8872774e" />
+
 ## English
 
 ### Overview
