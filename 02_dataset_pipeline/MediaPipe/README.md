@@ -1,41 +1,41 @@
-# Real-Time Hand Landmark Detection & Dataset Pipeline (LSM Interpreter)
+# Real-Time Hand Detection & Landmark Visualization
 
 ## English
 
 ### Overview
-This repository section contains the core modules for hand detection, landmark extraction using MediaPipe's `hand_landmarker.task`, and the automated dataset pipeline for the Mexican Sign Language (LSM) electronic interpreter project. This phase bridges real-time computer vision with machine learning by converting visual frames into structured numerical coordinates.
+This module demonstrates the practical application of real-time computer vision using **MediaPipe** (`hand_landmarker.task`) to detect hands through a live webcam feed and render their anatomical structure directly on the screen.
 
-### How It Works
-1. **Video Acquisition:** Captures continuous frames using OpenCV from the connected webcam[cite: 4, 5].
-2. **Color Space Conversion:** Transforms standard BGR frames into the RGB format required by MediaPipe[cite: 4].
-3. **Inference Engine (`hand_landmarker.task`):** Utilizes Google's specialized hand landmarker model to detect hand presence and localize 3D coordinates ($X, Y, Z$) for **21 anatomical keypoints**[cite: 5, 7].
-4. **Dataset Pipeline & CSV Export:** Automatically processes categorized image folders (static signs), extracts the 21 landmarks per image, validates detections, and exports the data into structured `.csv` files for each letter[cite: 7, 8, 9].
+### How It Works & Key Features
+1. **Video Capture & Mirroring:** OpenCV captures continuous frames from the webcam and flips them horizontally to provide a natural mirror view for the user.
+2. **Color Space Conversion:** Standard BGR frames are converted into RGB format, which is the required input format for MediaPipe's inference pipeline.
+3. **Edge Computing Inference:** The system loads Google's pre-trained `hand_landmarker.task` model to execute lightweight machine learning locally on the device.
+4. **Landmark Extraction & Skeletal Rendering:** 
+   - The model detects the hand region of interest (ROI) and predicts the exact 3D coordinates ($X, Y, Z$) of **21 anatomical keypoints** (fingertips, joints, and wrist base).
+   - The script iterates through these normalized coordinates, scales them to the frame's pixel dimensions, and draws green circular markers for each point.
+   - Using predefined skeletal connection arrays (`HAND_CONNECTIONS`), blue lines are dynamically drawn between related keypoints to form a complete, recognizable hand skeleton in real-time.
 
-### Technical Architecture
-* **Detection Model:** `hand_landmarker.task` (edge computing-optimized model executing palm detection and landmark regression).
-* **Data Representation:** Each sample is reduced from a heavy image matrix to a compact tabular row containing 63 coordinate values ($21 \text{ landmarks} \times 3$ axes) plus metadata[cite: 7].
-* **Deep Learning Preparation:** The structured CSV dataset is prepared for training neural networks (TensorFlow/Keras) to classify static LSM hand signs reliably[cite: 8].
-
-### Free Use & Licensing
-Developed for academic research, university social service, and open-source assistance. Distributed under the **Apache 2.0 License**, permitting free use, modification, and educational deployment.
+### Origin, Training, and Free Use
+* **Developed by Google:** MediaPipe is an open-source framework built and maintained by Google, specifically optimized for cross-platform machine learning solutions in real-time streaming media.
+* **How It Was Trained:** The underlying model (`hand_landmarker.task`) was trained by Google on massive, diverse datasets of hand images annotated with precise 3D joints, enabling it to learn robust features invariant to skin tones, lighting conditions, or background clutter.
+* **Open Source & Licensing:** Distributed under the **Apache 2.0 License**, the tool is entirely free to use, modify, and distribute for academic research, university projects, and commercial applications.
 
 ---
 
 ## Español
 
 ### Descripción General
-Esta sección del repositorio contiene los módulos principales para la detección de manos, la extracción de puntos clave mediante el modelo `hand_landmarker.task` de MediaPipe y el pipeline automatizado de conjuntos de datos para el proyecto del intérprete electrónico de Lengua de Señas Mexicana (LSM). Esta fase conecta la visión por computadora en tiempo real con el aprendizaje automático, convirtiendo fotogramas visuales en coordenadas numéricas estructuradas.
+Este módulo demuestra la aplicación práctica de la visión por computadora en tiempo real utilizando **MediaPipe** (`hand_landmarker.task`) para detectar manos a través de una transmisión de cámara web en vivo y renderizar su estructura anatómica directamente en la pantalla.
 
-### Cómo Funciona
-1. **Adquisición de Video:** Captura fotogramas continuos mediante OpenCV desde la cámara web conectada[cite: 4, 5].
-2. **Conversión de Espacio de Color:** Transforma el fotograma estándar BGR al formato RGB requerido por MediaPipe[cite: 4].
-3. **Motor de Inferencia (`hand_landmarker.task`):** Utiliza el modelo especializado de Google para detectar la presencia de la mano y localizar las coordenadas tridimensionales ($X, Y, Z$) de **21 puntos clave anatómicos**[cite: 5, 7].
-4. **Pipeline de Dataset y Exportación CSV:** Procesa automáticamente carpetas de imágenes categorizadas (señas estáticas), extrae los 21 landmarks por imagen, valida las detecciones y exporta la información en archivos `.csv` estructurados para cada letra[cite: 7, 8, 9].
+### Cómo Funciona y Características Principales
+1. **Captura de Video y Efecto Espejo:** OpenCV captura fotogramas continuos desde la cámara web y los invierte horizontalmente para ofrecer una vista de espejo natural al usuario.
+2. **Conversión de Espacio de Color:** Los fotogramas estándar en BGR se convierten al formato RGB, que es el espacio de entrada requerido por el pipeline de inferencia de MediaPipe.
+3. **Inferencia por Computación en el Borde (*Edge Computing*):** El sistema carga el modelo pre-entrenado `hand_landmarker.task` de Google para ejecutar aprendizaje automático ligero de manera local en el dispositivo.
+4. **Extracción de Landmarks y Renderizado Esquelético:** 
+   - El modelo detecta la región de interés (ROI) de la mano y predice las coordenadas tridimensionales exactas ($X, Y, Z$) de **21 puntos clave anatómicos** (yemas de los dedos, articulaciones y base de la muñeca).
+   - El script recorre estas coordenadas normalizadas, las escala a las dimensiones en píxeles del fotograma y dibuja marcadores circulares verdes para cada punto.
+   - Utilizando arreglos de conexión esquelética predefinidos (`HAND_CONNECTIONS`), se dibujan líneas azules de manera dinámica entre los puntos clave relacionados para formar un esqueleto de la mano completo y reconocible en tiempo real.
 
-### Arquitectura Técnica
-* **Modelo de Detección:** `hand_landmarker.task` (modelo optimizado para computación en el borde que ejecuta detección de palma y regresión de landmarks).
-* **Representación de Datos:** Cada muestra se reduce de una matriz de imagen pesada a una fila tabular compacta que contiene 63 valores de coordenadas ($21 \text{ landmarks} \times 3$ ejes) más metadatos[cite: 7].
-* **Preparación para Deep Learning:** El dataset CSV estructurado se prepara para alimentar el entrenamiento de redes neuronales (TensorFlow/Keras) orientadas a clasificar de manera confiable las señas estáticas de la LSM[cite: 8].
-
-### Libre Uso y Licenciamiento
-Desarrollado para investigación académica, servicio social universitario y apoyo tecnológico de código abierto. Distribuido bajo la **Licencia Apache 2.0**, permitiendo su uso libre, modificación y despliegue educativo.
+### Origen, Entrenamiento y Libre Uso
+* **Desarrollado por Google:** MediaPipe es un framework de código abierto creado y mantenido por Google, optimizado específicamente para soluciones de aprendizaje automático multiplataforma en tiempo real.
+* **Cómo Fue Entrenado:** El modelo subyacente (`hand_landmarker.task`) fue entrenado por Google utilizando conjuntos de datos masivos y diversos de imágenes de manos anotadas con articulaciones tridimensionales precisas, lo que le permite aprender características robustas independientes del tono de piel, las condiciones de iluminación o la complejidad del fondo.
+* **Código Abierto y Licenciamiento:** Distribuido bajo la **Licencia Apache 2.0**, la herramienta es de libre uso, modificación y distribución para investigación académica, proyectos universitarios y aplicaciones comerciales.
