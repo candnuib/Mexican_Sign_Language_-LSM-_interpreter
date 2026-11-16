@@ -35,7 +35,7 @@ The `entrenar_modelo.py` script implements a sequential neural network (*Sequent
 
 ### 1. What is the ReLU (Rectified Linear Unit) activation function?
 In a neural network, neurons perform weighted sums of their inputs. Without an activation function, the network would always behave like a simple straight line (linear operation), regardless of how many layers it has.
-* **What ReLU does:** It is a mathematical function that takes any numerical value and **eliminates negative numbers by converting them to 0**, while letting positive numbers pass through intact ($f(x) = \max(0, x)$).
+* **What ReLU does:** It is a mathematical function that takes any numerical value and **eliminates negative numbers by converting them to 0**, while letting positive numbers pass through intact.
 * **Why it is used:** It brings **non-linearity** to the network. This allows your model to learn extremely complex patterns and finger-bending combinations that a straight line could never capture, while doing so in a computationally efficient and fast manner.
 
 ### 2. What does the Adam (Adaptive Moment Estimation) optimizer do?
@@ -62,7 +62,7 @@ Upon completing the training process and evaluating the model against the isolat
 
 ### Generated Artifacts
 As output from this script, the following artifacts are stored in the models folder:
-1. **`letras_estaticas.keras`:** The binary file containing the network structure and already-trained neural weights ("acquired intelligence").
+1. **`static_letters.keras`:** The binary file containing the network structure and already-trained neural weights ("acquired intelligence").
 2. **`labels.txt`:** The dictionary mapping the network's numerical outputs to their respective alphabet letter (e.g., `0 -> A`, `1 -> B`, etc.).
 
 
@@ -103,7 +103,7 @@ El script `entrenar_modelo.py` implementa una red neuronal secuencial (*Sequenti
 
 ### 1. ¿Qué es la función de activación ReLU (Rectified Linear Unit)?
 En una red neuronal, las neuronas realizan sumas ponderadas de sus entradas. Sin una función de activación, la red se comportaría siempre como una simple línea recta (operación lineal), sin importar cuántas capas tenga. 
-* **Lo que hace ReLU:** Es una función matemática que toma cualquier valor numérico y **elimina los números negativos convirtiéndolos en 0**, mientras que deja pasar los números positivos intactos ($f(x) = \max(0, x)$).
+* **Lo que hace ReLU:** Es una función matemática que toma cualquier valor numérico y **elimina los números negativos convirtiéndolos en 0**, mientras que deja pasar los números positivos intactos.
 * **Por qué se usa:** Aporta **no-linealidad** a la red. Esto le permite a tu modelo aprender patrones sumamente complejos y combinaciones de dobleces en los dedos que una línea recta jamás podría capturar, haciéndolo de forma computacionalmente muy eficiente y rápida.
 
 ### 2. ¿Qué hace el optimizador Adam (Adaptive Moment Estimation)?
@@ -130,8 +130,9 @@ Al finalizar el proceso de entrenamiento y evaluar el modelo contra el conjunto 
 
 ### Archivos Generados
 Como salida de este script, se almacenan los siguientes artefactos en la carpeta de modelos:
-1. **`letras_estaticas.keras`:** El archivo binario que contiene la estructura de la red y los pesos neuronales ya entrenados ("la inteligencia adquirida").
+1. **`static_letters.keras`:** El archivo binario que contiene la estructura de la red y los pesos neuronales ya entrenados ("la inteligencia adquirida").
 2. **`labels.txt`:** El diccionario que mapea las salidas numéricas de la red con su respectiva letra del abecedario (ej. `0 -> A`, `1 -> B`, etc.).
+
 
 <img width="648" height="363" alt="image" src="https://github.com/user-attachments/assets/8b5c59d9-1c39-400b-a528-b8d37a3872ec" />
 
