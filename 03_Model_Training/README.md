@@ -136,3 +136,4 @@ Como salida de este script, se almacenan los siguientes artefactos en la carpeta
 
 <img width="648" height="363" alt="image" src="https://github.com/user-attachments/assets/8b5c59d9-1c39-400b-a528-b8d37a3872ec" />
 
+<img width="493" height="161" alt="image" src="https://github.com/user-attachments/assets/f7d5b072-b636-4242-bc54-790948a18b21" />
