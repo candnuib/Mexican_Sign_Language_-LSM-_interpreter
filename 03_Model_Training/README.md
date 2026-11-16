@@ -22,7 +22,7 @@ To ensure that the model learns to generalize rather than simply "memorize" the 
 ---
 
 ## Neural Network Architecture (TensorFlow / Keras)
-The `entrenar_modelo.py` script implements a sequential neural network (*Sequential*) optimized to process tabular landmark data:
+The `train_model.py` script implements a sequential neural network (*Sequential*) optimized to process tabular landmark data:
 
 * **Input Layer:** Receives a vector of **63 input values** (corresponding to the X, Y, Z coordinates of the hand's 21 key points).
 * **First Hidden Layer (Dense - 128 neurons):** Densely connected layer with a `ReLU` activation function responsible for extracting complex patterns and spatial relationships between the finger joints.
@@ -90,7 +90,7 @@ Para garantizar que el modelo aprenda a generalizar y no a simplemente "memoriza
 ---
 
 ## Arquitectura de la Red Neuronal (TensorFlow / Keras)
-El script `entrenar_modelo.py` implementa una red neuronal secuencial (*Sequential*) optimizada para procesar los datos tabulares de los landmarks:
+El script `train_model.py` implementa una red neuronal secuencial (*Sequential*) optimizada para procesar los datos tabulares de los landmarks:
 
 * **Capa de Entrada (Input Layer):** Recibe un vector de **63 valores** de entrada (correspondientes a las coordenadas X, Y, Z de los 21 puntos clave de la mano).
 * **Primera Capa Oculta (Dense - 128 neuronas):** Capa densamente conectada con función de activación `ReLU` encargada de extraer patrones complejos y relaciones espaciales entre las articulaciones de los dedos.
